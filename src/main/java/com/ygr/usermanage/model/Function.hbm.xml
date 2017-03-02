@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-3-2 11:02:07 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+	<class name="com.ygr.usermanage.model.Function" table="FUNCTION">
+		<id name="function_id" type="int">
+			<column name="function_id" />
+			<generator class="assigned" />
+		</id>
+		<property name="code" type="java.lang.String">
+			<column name="function_code" />
+		</property>
+		<property name="description" type="java.lang.String">
+			<column name="description" />
+		</property>
+		<many-to-one name="module" class="com.ygr.usermanage.model.Module">
+			<column name="module_id" />
+		</many-to-one>
+
+		<set name="roleLists" table="function_role">
+			<key>
+				<column name="function_id" />
+			</key>
+			<many-to-many class="com.ygr.usermanage.model.Role"
+				column="role_id" />
+		</set>
+	</class>
+</hibernate-mapping>

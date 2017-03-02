@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-3-2 15:47:38 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+	<class name="com.ygr.usermanage.model.Role" table="role">
+		<id name="role_id" type="int">
+			<column name="role_id" />
+			<generator class="native" />
+		</id>
+		<property name="rolename" type="java.lang.String">
+			<column name="rolename" />
+		</property>
+		<property name="description" type="java.lang.String">
+			<column name="description" />
+		</property>
+		<set name="functionList" table="function_role" inverse="false" lazy="true">
+			<key>
+				<column name="role_id" />
+			</key>
+			<many-to-many class="com.ygr.usermanage.model.Function"
+				column="function_id" />
+		</set>
+	</class>
+</hibernate-mapping>

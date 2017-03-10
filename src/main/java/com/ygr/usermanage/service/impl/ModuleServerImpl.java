@@ -1,4 +1,4 @@
-package com.ygr.usermanage.serverimpl;
+package com.ygr.usermanage.service.impl;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import com.ygr.usermanage.dao.ModuleDao;
 import com.ygr.usermanage.model.Function;
 import com.ygr.usermanage.model.Module;
-import com.ygr.usermanage.server.ModuleServer;
+import com.ygr.usermanage.service.ModuleServer;
 
 @Service("moduleServer")
 @Scope("singleton")
@@ -19,7 +19,7 @@ public class ModuleServerImpl implements ModuleServer {
 
 	@Override
 	public boolean addModule(Module module) {
-		if (null == moduleDao.getModuleById(module.getModule_id())) {
+		if (null == moduleDao.getModuleBymodulename(module.getModulename())) {
 			moduleDao.addModule(module);
 			return true;
 		} else {

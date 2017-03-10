@@ -1,4 +1,4 @@
-package com.ygr.usermanage.serverimpl;
+package com.ygr.usermanage.service.impl;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.ygr.usermanage.dao.RoleDao;
 import com.ygr.usermanage.model.Role;
-import com.ygr.usermanage.server.RoleServer;
+import com.ygr.usermanage.service.RoleServer;
 
 @Service("roleServer")
 @Scope("singleton")
@@ -19,7 +19,7 @@ public class RoleServerImpl implements RoleServer {
 
 	@Override
 	public boolean addRole(Role role) {
-		if (null == roleDao.findRoleById(role.getRole_id())) {
+		if (null == roleDao.findRoleByRoleName(role.getRolename())) {
 			roleDao.addRole(role);
 			return true;
 		} else {

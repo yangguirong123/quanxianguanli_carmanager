@@ -3,10 +3,10 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 2017-3-2 11:02:07 by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping>
-	<class name="com.ygr.usermanage.model.Function" table="FUNCTION">
+	<class name="com.ygr.usermanage.model.Function" table="function">
 		<id name="function_id" type="int">
 			<column name="function_id" />
-			<generator class="assigned" />
+			<generator class="native" />
 		</id>
 		<property name="code" type="java.lang.String">
 			<column name="function_code" />

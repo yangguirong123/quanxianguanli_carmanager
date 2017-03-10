@@ -1,16 +1,13 @@
-package com.ygr.usermanage.daoimpl;
+package com.ygr.usermanage.dao.impl;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.ygr.usermanage.dao.FunctionDao;
 import com.ygr.usermanage.model.Function;
-import com.ygr.usermanage.model.Module;
 import com.ygr.usermanage.utils.MyHibernateDaoSupport;
 
 @Transactional
@@ -47,6 +44,16 @@ public class FunctionDaoImpl extends MyHibernateDaoSupport implements FunctionDa
 	public Function findFunctionById(int function_id) {
 		return getHibernateTemplate().get(Function.class, function_id);
 
+	}
+
+	@Override
+	public Function findFunctionByfunctionName(String code) {
+		List<Function> list = (List<Function>) getHibernateTemplate().find("FROM Function where code=?",
+				code);
+		if (list != null && list.size() > 0) {
+			return list.get(0);
+		}
+		return null;
 	}
 
 }

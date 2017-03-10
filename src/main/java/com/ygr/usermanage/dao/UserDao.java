@@ -23,11 +23,15 @@ public interface UserDao {
 	/**
 	 * 更新修改用户密码
 	 */
-	void updateUserById(User user);
+	void updateUser(User user);
 
 	/**
 	 * 通过用户id查找用户信息
 	 */
 
 	User findUserById(int user_id);
+	/**
+	 * 通过用户名查找用户
+	 */
+	User findUserByUsername(String  username);
 }

@@ -1,14 +1,13 @@
-package com.ygr.usermanage.daoimpl;
+package com.ygr.usermanage.dao.impl;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
-
-import org.hibernate.Session;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.ygr.usermanage.dao.RoleDao;
+import com.ygr.usermanage.model.Function;
 import com.ygr.usermanage.model.Role;
 import com.ygr.usermanage.utils.MyHibernateDaoSupport;
 
@@ -44,5 +43,15 @@ public class RoleDaoImpl extends MyHibernateDaoSupport implements RoleDao {
 	public Role findRoleById(int role_id) {
 		return getHibernateTemplate().get(Role.class, role_id);
 	}
+
+	@Override
+	public Role findRoleByRoleName(String rolename) {
+		List<Role> list = (List<Role>) getHibernateTemplate().find("From Role where rolename=?", rolename);
+		if (list != null && list.size() > 0) {
+			return list.get(0);
+		} else {
+			return null;
+		}
+	}	
 
 }

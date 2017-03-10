@@ -27,6 +27,10 @@ public interface ModuleDao {
 	 */
 	Module getModuleById(int module_id);
 	/**
+	 * 根据模块名称获取模块信息
+	 */
+	Module getModuleBymodulename(String modulename);
+	/**
 	 * 根据一个模块id查询该模块下所有功能的信息list
 	 */
 	List<Function> getFunctionListsByModuleId( int module_id);

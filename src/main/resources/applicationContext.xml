@@ -11,7 +11,7 @@
             http://www.springframework.org/schema/aop/spring-aop.xsd
             http://www.springframework.org/schema/tx
             http://www.springframework.org/schema/tx/spring-tx.xsd">
-
+	<!-- http://www.springframework.org/schema/tx/spring-tx.xsd -->
 	<!-- 使用 annotation -->
 	<context:annotation-config />
 	<!-- 使用 annotation 自动注册bean,并检查@Controller, @Service, @Repository注解已被注入 -->
@@ -22,9 +22,8 @@
 			expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
 
-	<!-- 数据库连接 -->
-	<bean id="dataSource"
-		class="com.mchange.v2.c3p0.ComboPooledDataSource">
+	<!-- 数据库连接池 -->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
 		<property name="driverClass" value="com.mysql.jdbc.Driver" />
 		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/carmanage" />
 		<property name="user" value="test" />
@@ -56,13 +55,15 @@
 				<value>com/ygr/usermanage/model/Role.hbm.xml</value>
 				<value>com/ygr/usermanage/model/Function.hbm.xml</value>
 				<value>com/ygr/usermanage/model/User.hbm.xml</value>
+				<value>com/ygr/usermanage/model/Car.hbm.xml</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
-				<prop key="hibernate.show_sql">true</prop>
-				<prop key="hibernate.format_sql">true</prop>
+				<prop key="hibernate.show_sql">false</prop>
+				<prop key="hibernate.format_sql">false</prop>
+				<!-- <prop key="hibernate.current_session_context_class">thread</prop>线程 -->
 			</props>
 		</property>
 	</bean>
@@ -77,19 +78,11 @@
 	<tx:annotation-driven transaction-manager="txManager" />
 
 	<!-- 声明式容器事务管理 -->
-	<!--  <tx:advice id="txAdvice" transaction-manager="txManager">
-		<tx:attributes>
-			<tx:method name="save*" propagation="REQUIRED" />
-			<tx:method name="add*" propagation="REQUIRED" />
-			hibernate4必须配置为开启事务 否则 getCurrentSession()获取不到
-			<tx:method name="get*" propagation="REQUIRED" read-only="true" />
-		</tx:attributes>
-	</tx:advice>
-	<aop:config expose-proxy="true">
-		只对业务逻辑层实施事务
-		<aop:pointcut id="txPointcut"
-			expression="execution(* com.ittx.spring002.server..*.*(..))" />
-		<aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut" />
-	</aop:config>
-			-->
+	<!-- <tx:advice id="txAdvice" transaction-manager="txManager"> <tx:attributes> 
+		<tx:method name="save*" propagation="REQUIRED" /> <tx:method name="add*" 
+		propagation="REQUIRED" /> hibernate4必须配置为开启事务 否则 getCurrentSession()获取不到 
+		<tx:method name="get*" propagation="REQUIRED" read-only="true" /> </tx:attributes> 
+		</tx:advice> <aop:config expose-proxy="true"> 只对业务逻辑层实施事务 <aop:pointcut id="txPointcut" 
+		expression="execution(* com.ittx.spring002.server..*.*(..))" /> <aop:advisor 
+		advice-ref="txAdvice" pointcut-ref="txPointcut" /> </aop:config> -->
 </beans>

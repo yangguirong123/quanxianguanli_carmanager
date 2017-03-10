@@ -25,4 +25,9 @@ public interface FunctionDao {
 	 * 根据功能id查询功能信息
 	 */
 	Function findFunctionById(int function_id);
+	/**
+	 * 根据功能名称查询功能信息
+	 */
+	Function findFunctionByfunctionName(String code);
+	
 }

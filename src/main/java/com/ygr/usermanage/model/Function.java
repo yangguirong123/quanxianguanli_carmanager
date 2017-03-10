@@ -9,6 +9,12 @@ public class Function {
 	private Module module;
 	private Set<Role> roleLists;
 
+	public Function(String code, String description, Module module) {
+		this.code = code;
+		this.description = description;
+		this.module = module;
+	}
+
 	public Function(String code, String description) {
 		this.code = code;
 		this.description = description;

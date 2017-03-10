@@ -1,4 +1,4 @@
-package com.ygr.usermanage.server;
+package com.ygr.usermanage.service;
 
 import java.util.List;
 
@@ -25,4 +25,5 @@ public interface FunctionServer {
 	 * 根据功能id查询功能信息
 	 */
 	Function findFunctionById(int function_id);
+	
 }

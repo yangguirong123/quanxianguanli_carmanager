@@ -1,4 +1,4 @@
-package com.ygr.usermanage.serverimpl;
+package com.ygr.usermanage.service.impl;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.ygr.usermanage.dao.FunctionDao;
 import com.ygr.usermanage.model.Function;
-import com.ygr.usermanage.server.FunctionServer;
+import com.ygr.usermanage.service.FunctionServer;
 
 @Service("functionServer")
 @Scope("singleton")
@@ -18,7 +18,7 @@ public class FunctionServerImpl implements FunctionServer {
 
 	@Override
 	public boolean addFunction(Function function) {
-		if (null == functionDao.findFunctionById(function.getFunction_id())) {
+		if (null == functionDao.findFunctionByfunctionName(function.getCode())) {
 			functionDao.addFunction(function);
 			return true;
 		} else {
@@ -48,4 +48,5 @@ public class FunctionServerImpl implements FunctionServer {
 		return functionDao.findFunctionById(function_id);
 	}
 
+	
 }

@@ -1,4 +1,4 @@
-package com.ygr.usermanage.server;
+package com.ygr.usermanage.service;
 
 import java.util.List;
 

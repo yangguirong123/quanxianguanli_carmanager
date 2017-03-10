@@ -2,6 +2,7 @@ package com.ygr.usermanage.dao;
 
 import java.util.List;
 
+import com.ygr.usermanage.model.Function;
 import com.ygr.usermanage.model.Role;
 
 public interface RoleDao {
@@ -29,4 +30,11 @@ public interface RoleDao {
 	 * 根据id查询一个角色信息
 	 */
 	Role findRoleById(int role_id);
+	
+	/**
+	 * 根据id查询一个角色信息
+	 */
+	Role findRoleByRoleName(String  rolename);
+	
+
 }

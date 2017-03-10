@@ -25,12 +25,14 @@ id="WebApp_ID" version="3.0">
 	<!-- 1. 创建Spring的监听器 -->
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-	</listener>
+	</listener>											
 	<!-- 2. Spring的监听器通过context-param获取applicationContext.xml的位置 -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
+		<!-- applicationContext.xml的位置classpath默认在src/main/resouces下 -->
 		<param-value>classpath:applicationContext.xml</param-value>
 	</context-param>
+	<!-- 指定springMVC servlet 用来响应所有.do为后缀的请求 -->
 	<servlet>
 		<servlet-name>spring</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -45,4 +47,8 @@ id="WebApp_ID" version="3.0">
 		<servlet-name>spring</servlet-name>
 		<url-pattern>*.do</url-pattern>
 	</servlet-mapping>
+	<!-- 打开项目默认界面 -->
+	<welcome-file-list>
+		<welcome-file>login.do</welcome-file>
+	</welcome-file-list>
 </web-app>

@@ -49,11 +49,11 @@ public class ModuleDaoImpl extends MyHibernateDaoSupport implements ModuleDao {
 	}
 	
 	@Override
-	public List<Function> getFunctionListsByModule(int module_id) {
+	public List<Function> getFunctionListsByModuleId(int module_id) {
 		//用ID查询出模块，根据模块再得到功能列表
 		Module module=getHibernateTemplate().get(Module.class, module_id);
-		Set <Function> sets=module.getFunctionLists();
-		return Utils.setToList(sets);
+		Set <Function> set=module.getFunctionLists();
+		return Utils.setToList(set);
 		
 	}
 	

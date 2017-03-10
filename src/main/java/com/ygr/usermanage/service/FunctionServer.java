@@ -1,14 +1,14 @@
-package com.ygr.usermanage.dao;
+package com.ygr.usermanage.server;
 
 import java.util.List;
 
 import com.ygr.usermanage.model.Function;
 
-public interface FunctionDao {
+public interface FunctionServer {
 	/**
 	 * 添加一个功能
 	 */
-	void addFunction(Function function);
+	boolean addFunction(Function function);
 	/**
 	 * 查询所有的功能
 	 */

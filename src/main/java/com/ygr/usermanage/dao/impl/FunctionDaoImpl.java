@@ -17,15 +17,13 @@ import com.ygr.usermanage.utils.MyHibernateDaoSupport;
 @Repository("functionDao")
 @Scope("singleton")
 public class FunctionDaoImpl extends MyHibernateDaoSupport implements FunctionDao {
-	/**
-	 * 添加功能
-	 */
+
 	@Override
 	public void addFunction(Function function) {
 		getHibernateTemplate().save(function);
 
 	}
-	
+
 	@Override
 	public List<Function> findAllFunction() {
 		return (List<Function>) getHibernateTemplate().find("From Function");
@@ -42,6 +40,12 @@ public class FunctionDaoImpl extends MyHibernateDaoSupport implements FunctionDa
 	@Override
 	public void updateFunction(Function function) {
 		getHibernateTemplate().update(function);
+
+	}
+
+	@Override
+	public Function findFunctionById(int function_id) {
+		return getHibernateTemplate().get(Function.class, function_id);
 
 	}
 

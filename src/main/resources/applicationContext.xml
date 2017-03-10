@@ -55,6 +55,7 @@
 				<value>com/ygr/usermanage/model/Module.hbm.xml</value>
 				<value>com/ygr/usermanage/model/Role.hbm.xml</value>
 				<value>com/ygr/usermanage/model/Function.hbm.xml</value>
+				<value>com/ygr/usermanage/model/User.hbm.xml</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">

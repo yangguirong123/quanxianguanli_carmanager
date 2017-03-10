@@ -7,7 +7,8 @@ public class Role {
 	private String rolename;// 角色名
 	private String description;// 角色描述
 	private Set<Function> functionList;// 持有功能的集合
-
+	private Set<User> userlist;//持有用户的集合
+	
 	public Role(String rolename, String description) {
 		this.rolename = rolename;
 		this.description = description;
@@ -46,6 +47,14 @@ public class Role {
 
 	public void setFunctionList(Set<Function> functionList) {
 		this.functionList = functionList;
+	}
+
+	public Set<User> getUserlist() {
+		return userlist;
+	}
+
+	public void setUserlist(Set<User> userlist) {
+		this.userlist = userlist;
 	}
 
 	@Override

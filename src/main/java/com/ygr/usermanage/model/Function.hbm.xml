@@ -18,7 +18,7 @@
 			<column name="module_id" />
 		</many-to-one>
 
-		<set name="roleLists" table="function_role">
+		<set name="roleLists" table="function_role" lazy="false">
 			<key>
 				<column name="function_id" />
 			</key>

@@ -59,8 +59,7 @@ public class Function {
 
 	@Override
 	public String toString() {
-		return "Function [function_id=" + function_id + ", code=" + code + ", description=" + description + ", module="
-				+ module + "]";
+		return "Function [function_id=" + function_id + ", code=" + code + ", description=" + description +"]";
 	}
 
 }
